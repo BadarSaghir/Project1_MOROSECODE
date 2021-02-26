@@ -1,18 +1,25 @@
 import random
-from .emojies import emoji
+from .emojies import emojies
 from .alphabets import alphabet
 
 class MoroseCode:
-    def __init__(self, sheet_password) -> None:
+    def __init__(self) -> None:
         self.encode={}
         self.decode={}
+
+
+    def initialize(self, sheet_password):
+        self.encode={}
+        self.decode={}
+        alphabets = alphabet
+        emoji = emojies
         random.seed(sheet_password)
-        for _ in range(0,len(alphabet)):     
-            rnd_alpha = random.randrange(0, len(alphabet))
+        for _ in range(0,len(alphabets)):     
+            rnd_alpha = random.randrange(0, len(alphabets))
             rnd_emoji = random.randrange(0, len(emoji))
-            self.encode[alphabet[rnd_alpha]] = emoji[rnd_emoji]
-            self.decode[emoji[rnd_emoji]] = alphabet[rnd_alpha]
-            alphabet.pop(rnd_alpha)
+            self.encode[alphabets[rnd_alpha]] = emoji[rnd_emoji]
+            self.decode[emoji[rnd_emoji]] = alphabets[rnd_alpha]
+            alphabets.pop(rnd_alpha)
             emoji.pop(rnd_emoji)
         # print(self.encode)
         # print(self.decode)
@@ -36,20 +43,20 @@ class MoroseCode:
         
     
 
-def main():
-    encode={}
-    decode={}
-    random.seed(111)
-    for i in range(0,len(alphabet)):     
-        encode[alphabet[random.randrange(0, len(alphabet))]] = emoji[random.randrange(0, len(emoji))]
-        decode[emoji[random.randrange(0, len(emoji))]] = alphabet[random.randrange(0, len(alphabet))]
-        alphabet.pop(random.randrange(0, len(alphabet)))
-        emoji.pop(random.randrange(0, len(emoji)))
-    print(encode)
-    print(decode)
+# def main():
+#     # encode={}
+#     # decode={}
+#     # random.seed(111)
+#     # for i in range(0,len(alphabets)):     
+#     #     encode[alphabets[random.randrange(0, len(alphabets))]] = emoji[random.randrange(0, len(emoji))]
+#     #     decode[emoji[random.randrange(0, len(emoji))]] = alphabets[random.randrange(0, len(alphabets))]
+#     #     alphabets.pop(random.randrange(0, len(alphabets)))
+#     #     emoji.pop(random.randrange(0, len(emoji)))
+#     # print(encode)
+#     # print(decode)
 
-if __name__=='__main__':
+# if __name__=='__main__':
     
-    main()
+#     main()
 
         
