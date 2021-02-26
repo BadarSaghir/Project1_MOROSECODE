@@ -11,8 +11,8 @@ class MoroseCode:
     def initialize(self, sheet_password):
         self.encode={}
         self.decode={}
-        alphabets = alphabet
-        emoji = emojies
+        alphabets = alphabet.copy()
+        emoji = emojies.copy()
         random.seed(sheet_password)
         for _ in range(0,len(alphabets)):     
             rnd_alpha = random.randrange(0, len(alphabets))
@@ -26,16 +26,16 @@ class MoroseCode:
         
         
     
-    def encrypt(self, str_to_convert:str):
+    def encrypt(self, str_to_convert):
         encrypt_text=""
         for ch in str_to_convert:
             encrypt_text=encrypt_text+ self.encode[ch]
         return encrypt_text
         
-    def decrypt(self, str_to_decode:str):
+    def decrypt(self, str_to_decode):
         decrypt_text=""
         for ch in str_to_decode:
-            decrypt_text=decrypt_text+ self.decode[ch]
+            decrypt_text = decrypt_text + self.decode[ch]
             
         return decrypt_text
     
