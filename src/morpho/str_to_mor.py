@@ -1,5 +1,5 @@
 import random
-from .emojies import emojies
+from .emojies import emojis
 from .alphabets import alphabet
 
 class MoroseCode:
@@ -12,7 +12,7 @@ class MoroseCode:
         self.encode={}
         self.decode={}
         alphabets = alphabet.copy()
-        emoji = emojies.copy()
+        emoji = emojis.copy()
         random.seed(sheet_password)
         for _ in range(0,len(alphabets)):     
             rnd_alpha = random.randrange(0, len(alphabets))
