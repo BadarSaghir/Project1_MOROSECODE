@@ -11,9 +11,17 @@ class MoroseCode:
     def initialize(self, sheet_password):
         self.encode={}
         self.decode={}
+        random.seed(sheet_password)
         alphabets = alphabet.copy()
         emoji = emojis.copy()
-        random.seed(sheet_password)
+        emoji1 = alphabet.copy()
+        while(len(emoji)!=len(alphabets)+5):
+            for i in range(0,random.randrange(2,10)):
+                rnd = random.randrange(0, len(emoji1))
+                emoji.append(emoji1[rnd])
+                if i ==1:
+                    emoji1.pop(rnd)
+        print(len(emoji), len(alphabets))
         for _ in range(0,len(alphabets)):     
             rnd_alpha = random.randrange(0, len(alphabets))
             rnd_emoji = random.randrange(0, len(emoji))
